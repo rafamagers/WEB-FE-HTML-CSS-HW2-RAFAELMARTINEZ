@@ -1,101 +1,209 @@
 /* General Styles */
+* {
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
 }
 
-header {
-    background-color: #333;
+header, footer{
+    background-color: #565264;
     color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
+    padding: 10px;
+}
+
+.mainpage {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr 1.5fr;
+    grid-template-rows: 2fr 1fr 6fr 6fr 2fr;
+    grid-template-areas:
+        "head head head head" 
+        "aside section1 section1 section1"
+        "aside section2 section3 section3"
+        "aside section2 section4 section5"
+        "footer footer footer footer";
+    gap: 10px;
+    background-color: #dfdadc;
+}
+
+.mainpage > header{
+    grid-area: head;
+}
+aside {
+    grid-area: aside;
+    background-color: #D6CFCB;
+    padding: 15px;
+    justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-header h1 {
-    margin: 0;
+.section1{
+    grid-area: section1;
+    background-color: #A6808C;
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold; 
 }
 
-header nav a {
+.section2{
+    grid-area: section2;
+    display: flex;
+    background-color: #CCB7AE;
+    padding: 15px;
+    text-align: center;
+}
+.section3{
+    grid-area: section3;
+    background-color: #CCB7AE;
+    padding: 15px;
+}
+.section4{
+    grid-area: section4;
+    background-color: #CCB7AE;
+    padding: 15px;
+}
+.section5{
+    grid-area: section5;
+    background-color: #CCB7AE;
+    padding: 15px;
+}
+
+
+.mainpage footer {
+    grid-area: footer;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+footer a {
     color: white;
     text-decoration: none;
-    margin-left: 1rem;
 }
 
-header nav a:hover {
+footer a:hover {
     text-decoration: underline;
 }
-
-.main-content, .contact-form {
-    padding: 2rem;
-    background-color: white;
-    max-width: 1200px;
-    margin: 2rem auto;
-}
-
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #333;
-    color: white;
-    position: fixed;
+.sectionmain{
+    border: 1px solid #000000;
     width: 100%;
-    bottom: 0;
-}
-
-/* Grid Layout */
-.gallery .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.painting img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-/* Flexbox Usage */
-.header nav {
     display: flex;
-}
-
-.gallery {
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    background-color:#A6808C ;
+}
+/* Contact Form Page Styles */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #A6808C;
+}
+.ad-section {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #A6808C ;
+    text-align: center;
 }
 
-/* Contact Form */
-.contact-form form {
+.sectionmain > section {
+    flex: 0 0 50%;
+}
+form {
+    background-color: #f5f1f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    width: 600px;
 }
 
-.contact-form label {
-    font-weight: bold;
+label {
+    margin-bottom: 5px;
+}
+.steps {
+    display: flex;   
+    width: 100%;      /* Alinea los grupos de elementos en línea */
+    gap: 20px;
+    padding-left: 100px;  
 }
 
-.contact-form input, .contact-form textarea {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
+.step {
+    display: flex;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10%;
+    flex-direction: column; /* Apila los elementos h4 y p verticalmente */
+    align-items: center; 
+    background-color: #D6CFCB; 
+    border: 2px solid #0E1626; /* Borde de 2px, color negro */
 }
-
-.contact-form button {
-    padding: 0.5rem 1rem;
-    background-color: #333;
+input, textarea {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #CCB7AE;
+    border-radius: 4px;
+}
+textarea {
+    height: 200px;
+}
+button {
+    padding: 10px;
+    background-color: #565264;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
 }
+.compras{
+    display: flex;
+}
+.icon{
+    width: 50px;
+    height: 50px;
 
-.contact-form button:hover {
+}
+span{
+    width: 250px;
+    text-align: center;
+    padding: 10px;
+}
+button:hover {
     background-color: #555;
+}
+
+/* Flexbox Example in Section 3 */
+.section3 img {
+    width: 100px;
+    margin: 10px;
+}
+.section2 img {
+    width: 250px;
+    height: 450px;
+    padding-top: 50px;
+    margin: 10px; /* Centrará la imagen horizontalmente */
+    display: flex; /* Hace que la imagen se comporte como un bloque, permitiendo el centrado */
+    
+}
+aside img {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto; /* Centrará la imagen horizontalmente */
+    display: block; /* Hace que la imagen se comporte como un bloque, permitiendo el centrado */
+    
+}
+a{
+    font-weight: bold;
 }
